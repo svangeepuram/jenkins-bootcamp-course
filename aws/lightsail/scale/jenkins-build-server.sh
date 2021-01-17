@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Variables
-MVN_VERSION="3.6.0"
-ANT_VERSION="1.10.5"
+MVN_VERSION="3.6.3"
+ANT_VERSION="1.10.9"
 GRADLE_VERSION="4.10.2"
 GROOVY_VERION="2.5.4"
 SCALA_VERION="2.12.7"
 SBT_VERSION="1.2.6"
-KOTLIN_VERSION="1.3.10"
+KOTLIN_VERSION="1.4.21"
 GO_VERSION="1.11.2"
-PACKER_VERSION="1.3.2"
+PACKER_VERSION="1.6.6"
 TF_VERSION="0.11.10"
 SASS_VERSION="1.15.1"
 
@@ -49,7 +49,8 @@ gem install bundler
 cd /usr/local
 
 # Maven
-wget https://www-us.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz
+#wget https://www-us.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz
+wget https://apache.osuosl.org/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz
 tar -xvzf apache-maven-$MVN_VERSION-bin.tar.gz
 rm apache-maven-$MVN_VERSION-bin.tar.gz
 chmod 755 apache-maven-$MVN_VERSION
@@ -57,7 +58,8 @@ ln -s apache-maven-$MVN_VERSION maven
 ln -s /usr/local/maven/bin/mvn /usr/local/bin/mvn
 
 # Ant
-wget https://www-us.apache.org/dist/ant/binaries/apache-ant-$ANT_VERSION-bin.tar.gz
+#wget https://www-us.apache.org/dist/ant/binaries/apache-ant-$ANT_VERSION-bin.tar.gz
+wget  https://downloads.apache.org//ant/binaries/apache-ant-$ANT_VERSION-bin.tar.gz
 tar -xvzf apache-ant-$ANT_VERSION-bin.tar.gz
 rm apache-ant-$ANT_VERSION-bin.tar.gz
 chmod 755 apache-ant-$ANT_VERSION
@@ -98,9 +100,10 @@ ln -s scala-$SCALA_VERION scala
 ln -s /usr/local/scala/bin/scala /usr/local/bin/scala
 
 # Kotlin
-wget https://github.com/JetBrains/kotlin/releases/download/v$KOTLIN_VERSION/kotlin-compiler-$KOTLIN_VERSION-linux-x64.zip
-unzip kotlin-compiler-$KOTLIN_VERSION-linux-x64.zip
-rm kotlin-compiler-$KOTLIN_VERSION-linux-x64.zip
+#wget https://github.com/JetBrains/kotlin/releases/download/v$KOTLIN_VERSION/kotlin-compiler-$KOTLIN_VERSION-linux-x64.zip
+wget https://github.com/JetBrains/kotlin/releases/download/v$KOTLIN_VERSION/kotlin-compiler-$KOTLIN_VERSION.zip
+unzip kotlin-compiler-$KOTLIN_VERSION.zip
+rm kotlin-compiler-$KOTLIN_VERSION.zip
 mv kotlinc kotlin-$KOTLIN_VERSION
 ln -s kotlin-$KOTLIN_VERSION kotlin
 ln -s /usr/local/kotlin/bin/kotlin /usr/local/bin/kotlin
