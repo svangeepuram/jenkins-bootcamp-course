@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export NVM_DIR="/usr/local/nvm"
+
 # Make sure NVM is loaded
 . $NVM_DIR/nvm.sh
 
