@@ -159,8 +159,6 @@ sudo rsync --archive --chown=${username}:${username} /root/.ssh /home/${username
 sudo chmod 700 /home/${username}/.ssh
 sudo chmod 600 /home/${username}/.ssh/authorized_keys
 
-adduser --quiet --disabled-password --shell /bin/bash -m --gecos "Jenkins" -G sudo jenkins
-
 
 # Node via NVM
 cd /usr/local
