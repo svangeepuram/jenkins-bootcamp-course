@@ -20,7 +20,8 @@ cd /etc/nginx/sites-available
 if [ -f webproxy.conf ]; then
   rm webproxy.conf
 fi
-wget https://raw.githubusercontent.com/svangeepuram/jenkins-bootcamp-course/master/aws/lightsail/scale/webproxy.conf
+
+wget https://raw.githubusercontent.com/svangeepuram/jenkins-bootcamp-course/master/ocean/scale/webproxy.conf
 sed -i "s/DOMAIN_NAME/$DOMAIN/g" webproxy.conf
 
 sed -i "s/NGINX_IPV4/$NGINX_IPV4/g" webproxy.conf
