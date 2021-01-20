@@ -20,7 +20,7 @@ sleep 10
 # Common utilities
 apt-get install -y nano wget curl git python3
 apt-get install -y zip unzip
-apt-get install -y build-essentials
+apt-get install -y build-essential
 
 # Install Java 8
 apt-get install -y openjdk-8-jdk openjdk-8-jdk-headless
@@ -37,6 +37,8 @@ docker --version
 
 # Python 3, Pip and AWS CLI
 apt-get install -y python3 python3-pip
+alias pip=pip3
+pip install -U pip
 python3 --version
 pip3 --version
 pip3 install awscli
