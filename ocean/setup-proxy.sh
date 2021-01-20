@@ -16,6 +16,18 @@ if [ "$CUR_USER" != "root" ]; then
   exit 1
 fi
 
+mkdir -p /var/log/nginx/jenkins
+
+cd /etc/nginx/sites-available
+if [ -f webproxy.conf ]; then
+  rm webproxy.conf
+fi
+CUR_USER=`whoami`
+if [ "$CUR_USER" != "root" ]; then
+  echo "Not root yet"
+  exit 1
+fi
+
 cd /etc/nginx/sites-available
 if [ -f webproxy.conf ]; then
   rm webproxy.conf
