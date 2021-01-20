@@ -149,21 +149,34 @@ ln -s dart-sass-$SASS_VERSION sass
 ln -s /usr/local/sass/sass /usr/local/bin/sass
 ln -s /usr/local/sass/dart-sass /usr/local/bin/dart-sass
 
+
+export username="ubuntu"
+sudo adduser --quiet --disabled-password --shell /bin/bash --gecos "${username}" ${username}
+sudo usermod -aG sudo ${username}
+sudo rsync --archive --chown=${username}:${username} /root/.ssh /home/${username}
+sudo chmod 700 /home/${username}/.ssh
+sudo chmod 600 /home/${username}/.ssh/authorized_keys
+
+adduser --quiet --disabled-password --shell /bin/bash -m --gecos "Jenkins" -G sudo jenkins
+
+
 # Node via NVM
 cd /usr/local
 mkdir -p /usr/local/nvm
 chmod 755 nvm
 export NVM_DIR="/usr/local/nvm"
+export NG_CLI_ANALYTICS="false"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 sleep 10
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 if [ -s "$NVM_DIR/nvm.sh" ]; then
-    echo '\nexport NVM_DIR="/usr/local/nvm"' >> /root/.bashrc
+    echo ' ' >> /root/.bashrc
+    echo -e '\nexport NVM_DIR="/usr/local/nvm"' >> /root/.bashrc
     echo '. $NVM_DIR/nvm.sh' >> /root/.bashrc
 
-    echo '\nexport NVM_DIR="/usr/local/nvm"' >> /home/ubuntu/.bashrc
-    echo '. $NVM_DIR/nvm.sh' >> /home/ubuntu/.bashrc
+    echo -e '\nexport NVM_DIR="/usr/local/nvm"' >> /home/ubuntu/.bashrc
+    echo -e '. $NVM_DIR/nvm.sh' >> /home/ubuntu/.bashrc
     chown ubuntu.ubuntu /home/ubuntu/.bashrc
 
     # Install latest Argon LTS
@@ -221,10 +234,12 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     npm install -g grunt-cli webpack webpack-cli gulp-cli less typescript @angular/cli cordova ionic
 fi
 
-# Setup Jenkins user
-cd
-adduser --disabled-password --gecos "" jenkins
-adduser jenkins sudo
+export username="jenkins"
+sudo adduser --quiet --disabled-password --shell /bin/bash --gecos "${username}" ${username}
+sudo usermod -aG sudo ${username}
+sudo rsync --archive --chown=${username}:${username} /root/.ssh /home/${username}
+sudo chmod 700 /home/${username}/.ssh
+sudo chmod 600 /home/${username}/.ssh/authorized_keys
 
 if [ -d /home/jenkins ]; then
     cd /home/jenkins
