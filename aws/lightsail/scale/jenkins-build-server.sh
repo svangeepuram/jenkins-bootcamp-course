@@ -166,7 +166,7 @@ mkdir -p /usr/local/nvm
 chmod 755 nvm
 export NVM_DIR="/usr/local/nvm"
 export NG_CLI_ANALYTICS="false"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 sleep 10
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
