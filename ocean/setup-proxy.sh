@@ -53,4 +53,4 @@ ln -s ../sites-available/webproxy.conf webproxy.conf
 
 nginx -t
 
-systemctl restart nginx
+#systemctl restart nginx
