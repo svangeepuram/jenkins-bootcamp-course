@@ -3,10 +3,10 @@
 # Variables
 MVN_VERSION="3.6.3"
 ANT_VERSION="1.10.9"
-GRADLE_VERSION="4.10.2"
-GROOVY_VERION="2.5.4"
-SCALA_VERION="2.12.7"
-SBT_VERSION="1.2.6"
+GRADLE_VERSION="6.8"
+GROOVY_VERION="3.0.7"
+SCALA_VERION="2.13.4"
+SBT_VERSION="1.4.5"
 KOTLIN_VERSION="1.4.21"
 GO_VERSION="1.11.2"
 PACKER_VERSION="1.6.6"
@@ -83,7 +83,8 @@ ln -s groovy-$GROOVY_VERION groovy
 ln -s /usr/local/groovy/bin/groovy /usr/local/bin/groovy
 
 # SBT
-wget https://piccolo.link/sbt-$SBT_VERSION.tgz
+#wget https://piccolo.link/sbt-$SBT_VERSION.tgz
+wget https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz
 tar -xvzf sbt-$SBT_VERSION.tgz
 rm sbt-$SBT_VERSION.tgz
 mv sbt sbt-$SBT_VERSION
