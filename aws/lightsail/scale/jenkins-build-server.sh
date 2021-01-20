@@ -228,7 +228,7 @@ adduser jenkins sudo
 if [ -d /home/jenkins ]; then
     cd /home/jenkins
 
-    echo '\nexport NVM_DIR="/usr/local/nvm"' >> /home/jenkins/.bashrc
+    echo 'export NVM_DIR="/usr/local/nvm"' >> /home/jenkins/.bashrc
     echo '. $NVM_DIR/nvm.sh' >> /home/jenkins/.bashrc
     chown jenkins.jenkins /home/jenkins/.bashrc
 
