@@ -175,10 +175,6 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     echo -e '\nexport NVM_DIR="/usr/local/nvm"' >> /root/.bashrc
     echo '. $NVM_DIR/nvm.sh' >> /root/.bashrc
 
-    echo -e '\nexport NVM_DIR="/usr/local/nvm"' >> /home/ubuntu/.bashrc
-    echo -e '. $NVM_DIR/nvm.sh' >> /home/ubuntu/.bashrc
-    chown ubuntu.ubuntu /home/ubuntu/.bashrc
-
     # Install latest Argon LTS
     nvm install --lts=argon
     nvm use --lts=argon
@@ -247,12 +243,11 @@ if [ -d /home/jenkins ]; then
     echo 'export NVM_DIR="/usr/local/nvm"' >> /home/jenkins/.bashrc
     echo '. $NVM_DIR/nvm.sh' >> /home/jenkins/.bashrc
     chown jenkins.jenkins /home/jenkins/.bashrc
+fi
 
-    mkdir .ssh
-    chmod 700 .ssh
-    chown jenkins.jenkins .ssh
-    cd .ssh
-    cp /home/ubuntu/.ssh/authorized_keys .
-    chmod 600 authorized_keys
-    chown jenkins.jenkins authorized_keys
+if [ -d /home/ubuntu ]; then
+    cd /home/ubuntu
+    echo -e '\nexport NVM_DIR="/usr/local/nvm"' >> /home/ubuntu/.bashrc
+    echo -e '. $NVM_DIR/nvm.sh' >> /home/ubuntu/.bashrc
+    chown ubuntu.ubuntu /home/ubuntu/.bashrc
 fi
