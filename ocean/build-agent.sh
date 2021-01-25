@@ -7,12 +7,17 @@ passwd ubuntu
 usermod -aG sudo ubuntu
 rsync --archive --chown=ubuntu:ubuntu ~/.ssh /home/ubuntu
 
+method1 :
 chmod 640 /etc/sudoers
 cat <<EOF | tee -a /etc/sudoers
 ubuntu ALL=(ALL) NOPASSWD: ALL
 EOF
 visudo -c
 chmod 440 /etc/sudoers
+
+method2:
+EDITOR=vi visudo
+echo "ubuntu  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ubuntu
 
 from ubuntu :
 sudo wget -qO- https://get.docker.com/ | sh
